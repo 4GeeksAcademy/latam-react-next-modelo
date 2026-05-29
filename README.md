@@ -1,1 +1,0 @@
-# latam-react-next-modelo
