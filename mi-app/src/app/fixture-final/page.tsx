@@ -14,15 +14,16 @@ export default function FixtureFinalPage() {
       <section className="cards-grid">
         <article className="card">
           <h3>Final</h3>
-          <p>Fecha estimada: julio de 2026</p>
-          <p>Sede estimada: MetLife Stadium, Nueva Jersey</p>
+          <p>Fecha: 19/07/2026</p>
+          <p>Sede: MetLife Stadium (Nueva York/Nueva Jersey)</p>
           <p>Selecciones: por definir</p>
           <p>Resultado: pendiente</p>
         </article>
         <article className="card">
           <h3>Tercer puesto</h3>
-          <p>Fecha estimada: julio de 2026</p>
-          <p>Sede: por definir</p>
+          <p>Fecha: 18/07/2026</p>
+          <p>Sede: Hard Rock Stadium (Miami)</p>
+          <p>Selecciones: por definir</p>
           <p>Resultado: pendiente</p>
         </article>
       </section>

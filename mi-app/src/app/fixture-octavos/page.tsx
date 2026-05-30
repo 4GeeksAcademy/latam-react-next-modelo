@@ -1,12 +1,12 @@
 const crucesOctavos = [
-  "1A vs 2B",
-  "1C vs 2D",
-  "1E vs 2F",
-  "1G vs 2H",
-  "1B vs 2A",
-  "1D vs 2C",
-  "1F vs 2E",
-  "1H vs 2G",
+  { partido: "Octavos 1", fecha: "04/07/2026" },
+  { partido: "Octavos 2", fecha: "04/07/2026" },
+  { partido: "Octavos 3", fecha: "05/07/2026" },
+  { partido: "Octavos 4", fecha: "05/07/2026" },
+  { partido: "Octavos 5", fecha: "06/07/2026" },
+  { partido: "Octavos 6", fecha: "06/07/2026" },
+  { partido: "Octavos 7", fecha: "07/07/2026" },
+  { partido: "Octavos 8", fecha: "07/07/2026" },
 ];
 
 export default function FixtureOctavosPage() {
@@ -16,20 +16,21 @@ export default function FixtureOctavosPage() {
         <span className="chip">Ronda eliminatoria</span>
         <h1>Posibles cruces de octavos de final</h1>
         <p>
-          Esta tabla muestra el armado típico de octavos según la posición final
-          en fase de grupos. Los cruces definitivos se actualizan al cierre de
-          cada zona.
+          Los octavos se disputan del 04/07/2026 al 07/07/2026. Los equipos y
+          la asignación final de estadio por partido se confirman cuando cierra
+          la fase de grupos.
         </p>
       </section>
 
       <h2 className="section-title">Llave de octavos</h2>
       <section className="cards-grid cols-3">
         {crucesOctavos.map((cruce, index) => (
-          <article className="card" key={cruce}>
+          <article className="card" key={cruce.partido}>
             <span className="chip">Partido {index + 1}</span>
-            <h3>{cruce}</h3>
-            <p>Fecha estimada: junio de 2026</p>
-            <p>Resultado: pendiente</p>
+            <h3>{cruce.partido}</h3>
+            <p>Fecha oficial de ronda: {cruce.fecha}</p>
+            <p>Equipos: por confirmar según clasificación</p>
+            <p>Estadio: asignación oficial pendiente por FIFA</p>
           </article>
         ))}
       </section>

@@ -1,40 +1,29 @@
-const partidosGrupos = [
+const partidosConfirmados = [
   {
-    grupo: "A",
-    fecha: "12/06/2026",
-    partido: "Selección A1 vs Selección A2",
-    estadio: "Ciudad de México",
+    etiqueta: "Partido inaugural",
+    fecha: "11/06/2026",
+    partido: "México vs rival por sorteo",
+    estadio: "Estadio Azteca (Ciudad de México)",
   },
-  {
-    grupo: "B",
-    fecha: "13/06/2026",
-    partido: "Selección B1 vs Selección B2",
-    estadio: "Toronto",
-  },
-  {
-    grupo: "C",
-    fecha: "14/06/2026",
-    partido: "Selección C1 vs Selección C2",
-    estadio: "Los Ángeles",
-  },
-  {
-    grupo: "D",
-    fecha: "15/06/2026",
-    partido: "Selección D1 vs Selección D2",
-    estadio: "Monterrey",
-  },
-  {
-    grupo: "E",
-    fecha: "16/06/2026",
-    partido: "Selección E1 vs Selección E2",
-    estadio: "Atlanta",
-  },
-  {
-    grupo: "F",
-    fecha: "17/06/2026",
-    partido: "Selección F1 vs Selección F2",
-    estadio: "Vancouver",
-  },
+];
+
+const estadiosSede = [
+  "Estadio Azteca (Ciudad de México)",
+  "Estadio BBVA (Monterrey)",
+  "Estadio Akron (Guadalajara)",
+  "BC Place (Vancouver)",
+  "BMO Field (Toronto)",
+  "Mercedes-Benz Stadium (Atlanta)",
+  "Gillette Stadium (Boston)",
+  "AT&T Stadium (Dallas)",
+  "NRG Stadium (Houston)",
+  "Arrowhead Stadium (Kansas City)",
+  "SoFi Stadium (Los Ángeles)",
+  "Hard Rock Stadium (Miami)",
+  "MetLife Stadium (Nueva York/Nueva Jersey)",
+  "Lincoln Financial Field (Filadelfia)",
+  "Lumen Field (Seattle)",
+  "Levi's Stadium (San Francisco Bay Area)",
 ];
 
 export default function FixtureGruposPage() {
@@ -44,19 +33,30 @@ export default function FixtureGruposPage() {
         <span className="chip">Fase de grupos</span>
         <h1>Fixture de grupos y fechas</h1>
         <p>
-          Revisión rápida de los partidos iniciales del Mundial 2026. Esta
-          vista está pensada para consultar día, cruce y sede de cada encuentro.
+          Fase de grupos oficial del 11/06/2026 al 27/06/2026. Los cruces de
+          cada grupo se definen por sorteo, pero las sedes anfitrionas y la
+          fecha del partido inaugural ya están confirmadas.
         </p>
       </section>
 
-      <h2 className="section-title">Partidos destacados</h2>
+      <h2 className="section-title">Partidos confirmados</h2>
       <section className="cards-grid cols-3">
-        {partidosGrupos.map((partido) => (
-          <article className="card" key={`${partido.grupo}-${partido.partido}`}>
-            <span className="chip">Grupo {partido.grupo}</span>
+        {partidosConfirmados.map((partido) => (
+          <article className="card" key={partido.etiqueta}>
+            <span className="chip">{partido.etiqueta}</span>
             <h3>{partido.partido}</h3>
             <p>Fecha: {partido.fecha}</p>
             <p>Sede: {partido.estadio}</p>
+          </article>
+        ))}
+      </section>
+
+      <h2 className="section-title">Estadios sede confirmados</h2>
+      <section className="cards-grid cols-3">
+        {estadiosSede.map((estadio) => (
+          <article className="card" key={estadio}>
+            <h3>{estadio}</h3>
+            <p>Etapa con partidos: fase de grupos y/o eliminatorias.</p>
           </article>
         ))}
       </section>
