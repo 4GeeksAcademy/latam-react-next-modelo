@@ -20,7 +20,16 @@
 }
 
 body {
-  background: var(--background);
+  /* Fondo tipo bandera argentina: tres franjas horizontales */
+  background: linear-gradient(
+    to bottom,
+    #cfe7fa 0%,
+    #cfe7fa 33.33%,
+    #ffffff 33.33%,
+    #ffffff 66.66%,
+    #cfe7fa 66.66%,
+    #cfe7fa 100%
+  );
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
