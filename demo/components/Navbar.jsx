@@ -30,9 +30,15 @@ export const Navbar = () => {
           | <Link href="/contact-form" className="hover:underline">
               Contactos 2
             </Link>
-          </li>          <li>
+          </li>
+          <li>
           | <Link href="/counter" className="hover:underline">
               Counter
+            </Link>
+          </li>
+          <li>
+          | <Link href="/characters" className="hover:underline">
+              Characters
             </Link>
           </li>
         </ul>
