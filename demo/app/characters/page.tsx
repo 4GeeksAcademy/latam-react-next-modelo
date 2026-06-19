@@ -1,9 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react";
+import { useFavorites } from "@/context/FavoritesContext";
+
+type Character = {
+	name: string;
+	homeworld: string;
+	url?: string;
+};
 
 export default function Characters() {
-	const [ characters, setCharacters] = useState([])
+	const [ characters, setCharacters] = useState<Character[]>([])
+	const { favorites, addFavorite, removeFavorite } = useFavorites();
 	// Comentario
 
 	const getCharacters = async () => {
@@ -45,20 +53,58 @@ export default function Characters() {
 
 				<div className="grid grid-cols-1 gap-6 sm:grid-cols-3 xl:grid-cols-5">
 					
-					{characters.map((item, index) => 
-						<article className="overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-lg">
+					{characters.map((item, index) => {
+						const favoriteId = item.url ?? `${item.name}-${index}`;
+						const image = `https://starwars.chocobar.net/img/characters/${index + 1}.jpg`;
+						const isFavorite = favorites.some((favorite) => favorite.id === favoriteId);
+
+						return (
+						<article key={favoriteId} className="overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-lg">
 							<img
-								src={`https://starwars.chocobar.net/img/characters/${index + 1}.jpg`}
+								src={image}
 								alt={item.name}
 								className="h-[70%] w-full object-cover"
 							/>
 							<div className="p-5">
-								<h1 className="text-xl font-semibold">{item.name}</h1>
+								<div className="flex items-start justify-between gap-3">
+									<h1 className="text-xl font-semibold">{item.name}</h1>
+									<button
+										type="button"
+										onClick={() =>
+											isFavorite
+												? removeFavorite(favoriteId)
+												: addFavorite({
+													id: favoriteId,
+													name: item.name,
+													homeworld: item.homeworld,
+													image,
+												})
+										}
+										aria-label={isFavorite ? `Quitar ${item.name} de favoritos` : `Agregar ${item.name} a favoritos`}
+										className="rounded p-1 transition hover:bg-slate-700"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											fill={isFavorite ? "#ef4444" : "none"}
+											stroke="#ef4444"
+											strokeWidth="1.8"
+											className="h-6 w-6"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												d="M11.998 21S4.5 15.606 4.5 9.75a4.5 4.5 0 018.1-2.694L12 7.875l-.6-.819A4.5 4.5 0 0119.5 9.75C19.5 15.606 11.998 21 11.998 21z"
+											/>
+										</svg>
+									</button>
+								</div>
 								<p className="text-xl font-semibold">Habitat {item.homeworld}</p>
 
 							</div>
 						</article>
-					)}
+						);
+					})}
 
           {/* Card con info del personaje */}
 {/* 

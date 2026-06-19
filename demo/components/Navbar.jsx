@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import BtnFavorites from '@/components/BtnFavorites';
 
 // 1. Crear la función con el nombre del Componente
 // 1.1 Exportando la función
@@ -9,8 +12,8 @@ export const Navbar = () => {
   // 3. Retornar el JSX (un solo elemento HTML)
   return (
     <div>
-      <nav className="bg-blue-500 text-white p-4">
-        <ul className="flex space-x-4">
+      <nav className="flex items-center justify-between bg-blue-500 p-4 text-white">
+        <ul className="flex flex-wrap items-center gap-4">
           <li>
             <Link href="/" className="hover:underline">
               Home
@@ -42,6 +45,8 @@ export const Navbar = () => {
             </Link>
           </li>
         </ul>
+
+        <BtnFavorites />
       </nav>
     </div>
   )
